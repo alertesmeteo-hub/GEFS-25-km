@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Alertes Météo — GEFS 25 km
  * Description: Cartes et tableaux de la prévision d'ensemble GEFS, grille 0,25°.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Alertes Météo
  * License: GPL-2.0-or-later
  */
 if (!defined('ABSPATH')) { exit; }
 add_shortcode('gefs_meteo', function () {
-    wp_enqueue_style('gefs-meteo', plugins_url('assets/module.css', __FILE__), array(), '1.1.0');
-    wp_enqueue_script('gefs-meteo', plugins_url('assets/module.js', __FILE__), array(), '1.1.0', true);
+    wp_enqueue_style('gefs-meteo', plugins_url('assets/module.css', __FILE__), array(), '1.1.1');
+    wp_enqueue_script('gefs-meteo', plugins_url('assets/module.js', __FILE__), array(), '1.1.1', true);
     $source = apply_filters('gefs_meteo_data_url', 'https://raw.githubusercontent.com/alertesmeteo-hub/GEFS-25-km/data');
     ob_start(); ?>
     <section class="gefs" data-gefs data-source="<?php echo esc_url($source); ?>" data-places="<?php echo esc_url(plugins_url('assets/communes-geo.json', __FILE__)); ?>">
@@ -39,7 +39,7 @@ add_shortcode('gefs_meteo', function () {
       <p data-period></p>
       <div class="gefs-map"><img data-map alt="Carte GEFS" hidden></div>
       <p class="gefs-note">Vent moyen à 10 m et rafales en km/h (paliers de 5 km/h). Précipitations sur 6 h et cumul depuis le run, en mm d'équivalent eau. Tableau toutes les 6 h jusqu'à H+240 (10 jours), sans interpolation horaire. Cartes à H+0, 6, 12, 18, puis toutes les 24 h. Le cumul total est calculé membre par membre avant les statistiques. La grille est de 0,25° ; « 25 km » est le nom du module, pas une distance constante.</p>
-      <footer><span class="gefs-logo">www.alertes-meteo.com</span><p>Source : NOAA/NCEP · GEFS opérationnel. Module GEFS 25 km v1.1.0.</p></footer>
+      <footer><p>Alertes-meteo.com</p><p>Source : NOAA/NCEP · GEFS opérationnel. Module GEFS 25 km v1.1.1.</p></footer>
     </section>
     <?php return ob_get_clean();
 });

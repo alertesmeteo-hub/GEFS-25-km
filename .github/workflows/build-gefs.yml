@@ -55,8 +55,8 @@ jobs:
       - name: Créer le ZIP WordPress
         run: |
           cd wordpress
-          zip -qr ../build/gefs-25-km-v1.0.0.zip gefs-25-km
+          zip -qr ../build/gefs-25-km-v1.1.1.zip gefs-25-km
       - uses: actions/upload-artifact@v4
         with:
           name: gefs-wordpress
-          path: build/gefs-25-km-v1.0.0.zip
+          path: build/gefs-25-km-v1.1.1.zip
